@@ -1,0 +1,213 @@
+/**
+ * Gruvbox Dark Theme for Rofi
+ * Save as ~/.config/rofi/gruvbox-dark.rasi
+ * Usage: rofi -show drun -theme ~/.config/rofi/gruvbox-dark.rasi
+ */
+
+* {
+    /* Gruvbox Dark Colors */
+    bg0:     #282828;
+    bg1:     #3c3836;
+    bg2:     #504945;
+    bg3:     #665c54;
+
+    fg0:     #fbf1c7;
+    fg1:     #ebdbb2;
+    fg2:     #d5c4a1;
+    fg3:     #bdae93;
+
+    red:     #cc241d;
+    green:   #98971a;
+    yellow:  #d79921;
+    blue:    #458588;
+    purple:  #b16286;
+    aqua:    #689d6a;
+    gray:    #a89984;
+    orange:  #d65d0e;
+
+    bright-red:     #fb4934;
+    bright-green:   #b8bb26;
+    bright-yellow:  #fabd2f;
+    bright-blue:    #83a598;
+    bright-purple:  #d3869b;
+    bright-aqua:    #8ec07c;
+
+    background-color: transparent;
+    text-color:       @fg1;
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+window {
+    background-color: @bg0;
+    border:           2px;
+    border-color:     @yellow;
+    border-radius:    10px;
+    width:            600px;
+    padding:          20px;
+}
+
+mainbox {
+    border:  0;
+    padding: 0;
+}
+
+message {
+    border:       2px 0 0;
+    border-color: @bg1;
+    padding:      10px;
+}
+
+textbox {
+    text-color: @fg1;
+}
+
+inputbar {
+    children:   [prompt, textbox-prompt-colon, entry, case-indicator];
+    spacing:    10px;
+    padding:    10px;
+    background-color: @bg1;
+    border-radius: 8px;
+    margin: 0 0 10px 0;
+}
+
+prompt {
+    text-color: @bright-yellow;
+    font: "JetBrainsMono Nerd Font Bold 12";
+}
+
+textbox-prompt-colon {
+    expand:     false;
+    str:        ">";
+    text-color: @yellow;
+}
+
+entry {
+    text-color: @fg1;
+    placeholder: "Search...";
+    placeholder-color: @gray;
+}
+
+case-indicator {
+    text-color: @gray;
+}
+
+listview {
+    border:       0;
+    padding:      5px 0 0;
+    columns:      1;
+    lines:        8;
+    spacing:      5px;
+    scrollbar:    true;
+    fixed-height: false;
+}
+
+scrollbar {
+    width:        4px;
+    border:       0;
+    handle-color: @yellow;
+    handle-width: 8px;
+    padding:      0 0 0 5px;
+    background-color: @bg1;
+    border-radius: 10px;
+}
+
+element {
+    border:  0;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: transparent;
+    text-color: @fg2;
+}
+
+element.normal.normal {
+    background-color: transparent;
+    text-color:       @fg1;
+}
+
+element.normal.urgent {
+    background-color: @red;
+    text-color:       @bg0;
+}
+
+element.normal.active {
+    background-color: @green;
+    text-color:       @bg0;
+}
+
+/*element.selected.normal {
+    background-color: @yellow;
+    text-color:       @bg0;
+    border: 2px solid @bright-yellow;
+}*/
+
+element.selected.urgent {
+    background-color: @bright-red;
+    text-color:       @bg0;
+}
+
+element.selected.active {
+    background-color: @bright-green;
+    text-color:       @bg0;
+}
+
+element.alternate.normal {
+    background-color: transparent;
+    text-color:       @fg1;
+}
+
+element.alternate.urgent {
+    background-color: @red;
+    text-color:       @bg0;
+}
+
+element.alternate.active {
+    background-color: @green;
+    text-color:       @bg0;
+}
+
+element-icon {
+    size: 1.5em;
+    margin: 0 10px 0 0;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+mode-switcher {
+    border:       2px 0 0;
+    border-color: @bg1;
+    spacing:      5px;
+    margin:       10px 0 0 0;
+}
+
+button {
+    padding:          8px;
+    background-color: @bg1;
+    text-color:       @fg1;
+    border-radius:    6px;
+}
+
+/*button.selected {
+    background-color: @blue;
+    text-color:       @bg0;
+    border: 2px solid @bright-blue;
+}*/
+
+/* Error message */
+error-message {
+    border:       2px;
+    border-color: @red;
+    padding:      10px;
+    background-color: @bg0;
+}
+
+/* Hover effects */
+/*element:hover {
+    background-color: @bg2;
+}
+
+element.selected:hover {
+    background-color: @bright-yellow;
+}*/

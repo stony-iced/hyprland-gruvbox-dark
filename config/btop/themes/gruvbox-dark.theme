@@ -1,0 +1,86 @@
+# Gruvbox Dark Theme for Btop
+# Save as ~/.config/btop/themes/gruvbox-dark.theme
+
+# Main background, empty for terminal default, need to be empty if you want transparent background
+theme[main_bg]="#282828"
+
+# Main text color
+theme[main_fg]="#ebdbb2"
+
+# Title color for boxes
+theme[title]="#d79921"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#fabd2f"
+
+# Background color of selected item in processes box
+theme[selected_bg]="#504945"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#fbf1c7"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#7c6f64"
+
+# Color of text appearing on top of graphs, i.e uptime and current network graph scaling
+theme[graph_text]="#a89984"
+
+# Background color of the percentage meters
+theme[meter_bg]="#3c3836"
+
+# Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+theme[proc_misc]="#83a598"
+
+# CPU, Memory, Network, Proc box outline colors
+theme[cpu_box]="#458588"
+theme[mem_box]="#98971a"
+theme[net_box]="#d65d0e"
+theme[proc_box]="#b16286"
+
+# Box divider line and small boxes line color
+theme[div_line]="#504945"
+
+# Temperature graph color (Green -> Yellow -> Red)
+theme[temp_start]="#98971a"
+theme[temp_mid]="#d79921"
+theme[temp_end]="#cc241d"
+
+# CPU graph colors (Teal to Lavender)
+theme[cpu_start]="#689d6a"
+theme[cpu_mid]="#83a598"
+theme[cpu_end]="#b16286"
+
+# Mem/Disk free meter (Darker -> Lighter)
+theme[free_start]="#3c3836"
+theme[free_mid]="#504945"
+theme[free_end]="#665c54"
+
+# Mem/Disk cached meter (Darker -> Lighter)
+theme[cached_start]="#458588"
+theme[cached_mid]="#83a598"
+theme[cached_end]="#d3869b"
+
+# Mem/Disk available meter (Darker -> Lighter)
+theme[available_start]="#98971a"
+theme[available_mid]="#b8bb26"
+theme[available_end]="#fabd2f"
+
+# Mem/Disk used meter (Darker -> Lighter)
+theme[used_start]="#cc241d"
+theme[used_mid]="#d65d0e"
+theme[used_end]="#fe8019"
+
+# Download graph colors (Gruvbox aqua)
+theme[download_start]="#427b58"
+theme[download_mid]="#689d6a"
+theme[download_end]="#8ec07c"
+
+# Upload graph colors (Gruvbox red)
+theme[upload_start]="#9d0006"
+theme[upload_mid]="#cc241d"
+theme[upload_end]="#fb4934"
+
+# Process box color gradient for threads, mem and cpu usage (Gruvbox yellow to red)
+theme[process_start]="#d79921"
+theme[process_mid]="#d65d0e"
+theme[process_end]="#cc241d"

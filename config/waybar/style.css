@@ -1,0 +1,621 @@
+/* Waybar Advanced Gruvbox Dark Medium Style - FIXED */
+/* Save as ~/.config/waybar/style.css */
+
+/* Import colors */
+@import "colors.css";
+
+/* ============================================
+   GLOBAL SETTINGS
+   ============================================ */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    min-height: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   MAIN WINDOW
+   ============================================ */
+window#waybar {
+    background-color: alpha(@bg0, 0.95);
+    color: @fg1;
+    border-radius: 12px;
+    margin: 8px 12px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* ============================================
+   TOOLTIP
+   ============================================ */
+tooltip {
+    background: @bg0;
+    border: 2px solid @yellow;
+    border-radius: 8px;
+    padding: 10px;
+    color: @fg1;
+}
+
+tooltip label {
+    color: @fg1;
+    padding: 5px;
+}
+
+/* ============================================
+   CUSTOM LAUNCHER
+   ============================================ */
+#custom-launcher {
+    background-color: @yellow;
+    color: @bg0;
+    padding: 0 20px;
+    margin: 4px 0 4px 4px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#custom-launcher:hover {
+    background-color: @bright-yellow;
+}
+
+/* ============================================
+   WORKSPACES
+   ============================================ */
+#workspaces {
+    background: @bg1;
+    padding: 0;
+    margin: 4px 8px;
+    border-radius: 8px;
+}
+
+#workspaces button {
+    padding: 0 12px;
+    margin: 4px 2px;
+    background-color: transparent;
+    color: @fg4;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#workspaces button:hover {
+    background-color: @bg2;
+    color: @fg1;
+    box-shadow: none;
+}
+
+#workspaces button.active {
+    background-color: @yellow;
+    color: @bg0;
+}
+
+#workspaces button.urgent {
+    background-color: @bright-red;
+    color: @fg0;
+}
+
+/* ============================================
+   WINDOW TITLE
+   ============================================ */
+#window {
+    background: @bg1;
+    color: @fg1;
+    padding: 0 15px;
+    margin: 4px 8px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* ============================================
+   HARDWARE MONITORS
+   ============================================ */
+#cpu,
+#memory,
+#temperature,
+#disk {
+    background: @bg1;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#cpu {
+    color: @orange;
+}
+
+#cpu:hover {
+    background: @orange;
+    color: @bg0;
+}
+
+#memory {
+    color: @aqua;
+}
+
+#memory:hover {
+    background: @aqua;
+    color: @bg0;
+}
+
+#temperature {
+    color: @yellow;
+}
+
+#temperature:hover {
+    background: @yellow;
+    color: @bg0;
+}
+
+#temperature.critical {
+    color: @bright-red;
+    background: @bg2;
+}
+
+#disk {
+    color: @bright-yellow;
+}
+
+#disk:hover {
+    background: @bright-yellow;
+    color: @bg0;
+}
+
+/* ============================================
+   CLOCK
+   ============================================ */
+#clock {
+    background-color: @blue;
+    color: @fg0;
+    padding: 0 20px;
+    margin: 4px 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#clock:hover {
+    background-color: @bright-blue;
+}
+
+/* ============================================
+   TRAY
+   ============================================ */
+#tray {
+    background: @bg1;
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @red;
+    border-radius: 6px;
+}
+
+/* ============================================
+   AUDIO
+   ============================================ */
+#pulseaudio {
+    background: @bg1;
+    color: @purple;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#pulseaudio:hover {
+    background: @purple;
+    color: @bg0;
+}
+
+#pulseaudio.muted {
+    color: @gray;
+    background: @bg2;
+}
+
+#pulseaudio.microphone {
+    color: @bright-purple;
+}
+
+#pulseaudio.microphone:hover {
+    background: @bright-purple;
+    color: @bg0;
+}
+
+/* ============================================
+   NETWORK
+   ============================================ */
+#network {
+    background: @bg1;
+    color: @blue;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#network:hover {
+    background: @blue;
+    color: @fg0;
+}
+
+#network.disconnected {
+    color: @red;
+    background: @bg2;
+}
+
+#network.disconnected:hover {
+    background: @red;
+    color: @fg0;
+}
+
+/* ============================================
+   BLUETOOTH
+   ============================================ */
+#bluetooth {
+    background: @bg1;
+    color: @bright-blue;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#bluetooth:hover {
+    background: @bright-blue;
+    color: @bg0;
+}
+
+#bluetooth.disabled {
+    color: @gray;
+    background: @bg2;
+}
+
+#bluetooth.connected {
+    color: @bright-aqua;
+}
+
+/* ============================================
+   BACKLIGHT
+   ============================================ */
+#backlight {
+    background: @bg1;
+    color: @bright-yellow;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#backlight:hover {
+    background: @bright-yellow;
+    color: @bg0;
+}
+
+/* ============================================
+   BATTERY
+   ============================================ */
+#battery {
+    background: @bg1;
+    color: @green;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#battery.warning {
+    color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+    color: @bright-red;
+    background: @bg2;
+}
+
+#battery.charging {
+    color: @bright-green;
+}
+
+#battery.plugged {
+    color: @bright-aqua;
+}
+
+#battery:hover {
+    background: @green;
+    color: @bg0;
+}
+
+/* ============================================
+   CUSTOM NOTIFICATION
+   ============================================ */
+#custom-notification {
+    background: @bg1;
+    color: @bright-yellow;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#custom-notification:hover {
+    background: @bright-yellow;
+    color: @bg0;
+}
+
+/* ============================================
+   CUSTOM POWER
+   ============================================ */
+#custom-power {
+    background-color: @red;
+    color: @fg0;
+    padding: 0 15px;
+    margin: 4px 4px 4px 2px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#custom-power:hover {
+    background-color: @bright-red;
+}
+
+/* ============================================
+   IDLE INHIBITOR
+   ============================================ */
+#idle_inhibitor {
+    background: @bg1;
+    color: @fg4;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#idle_inhibitor.activated {
+    background: @green;
+    color: @bg0;
+}
+
+/* ============================================
+   MPD
+   ============================================ */
+#mpd {
+    background: @bg1;
+    color: @purple;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#mpd.disconnected {
+    color: @gray;
+}
+
+#mpd.stopped {
+    color: @fg4;
+}
+
+#mpd.paused {
+    color: @yellow;
+}
+
+#mpd.playing {
+    color: @bright-green;
+}
+
+/* ============================================
+   MODE
+   ============================================ */
+#mode {
+    background: @red;
+    color: @fg0;
+    padding: 0 15px;
+    margin: 4px 8px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* ============================================
+   SCRATCHPAD
+   ============================================ */
+#scratchpad {
+    background: @bg1;
+    color: @bright-purple;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#scratchpad.empty {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+/* ============================================
+   LANGUAGE
+   ============================================ */
+#language {
+    background: @bg1;
+    color: @bright-blue;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#language:hover {
+    background: @bright-blue;
+    color: @bg0;
+}
+
+/* ============================================
+   KEYBOARD STATE
+   ============================================ */
+#keyboard-state {
+    background: @bg1;
+    color: @fg1;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#keyboard-state > label.locked {
+    color: @bright-red;
+}
+
+/* ============================================
+   CUSTOM WEATHER
+   ============================================ */
+#custom-weather {
+    background: @bg1;
+    color: @bright-blue;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#custom-weather:hover {
+    background: @bright-blue;
+    color: @bg0;
+}
+
+/* ============================================
+   CUSTOM UPDATES
+   ============================================ */
+#custom-updates {
+    background: @bg1;
+    color: @bright-green;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#custom-updates:hover {
+    background: @bright-green;
+    color: @bg0;
+}
+
+/* ============================================
+   CUSTOM MEDIA
+   ============================================ */
+#custom-media {
+    background: @bg1;
+    color: @purple;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+    min-width: 100px;
+}
+
+#custom-media:hover {
+    background: @purple;
+    color: @bg0;
+}
+
+/* ============================================
+   PRIVACY
+   ============================================ */
+#privacy {
+    background: @bg1;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#privacy-item {
+    padding: 0 5px;
+    color: @fg1;
+}
+
+#privacy-item.screenshare {
+    color: @bright-red;
+}
+
+#privacy-item.audio-in {
+    color: @bright-yellow;
+}
+
+#privacy-item.audio-out {
+    color: @bright-green;
+}
+
+/* ============================================
+   WIREPLUMBER
+   ============================================ */
+#wireplumber {
+    background: @bg1;
+    color: @purple;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#wireplumber:hover {
+    background: @purple;
+    color: @bg0;
+}
+
+#wireplumber.muted {
+    color: @gray;
+    background: @bg2;
+}
+
+/* ============================================
+   USER
+   ============================================ */
+#user {
+    background: @bg1;
+    color: @bright-blue;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#user:hover {
+    background: @bright-blue;
+    color: @bg0;
+}
+
+/* ============================================
+   LOAD
+   ============================================ */
+#load {
+    background: @bg1;
+    color: @orange;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#load:hover {
+    background: @orange;
+    color: @bg0;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+/*@media (max-width: 1920px) {
+    * {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1366px) {
+    * {
+        font-size: 11px;
+    }
+
+    #workspaces button {
+        padding: 0 10px;
+    }
+
+    #custom-launcher {
+        padding: 0 15px;
+    }
+}*/

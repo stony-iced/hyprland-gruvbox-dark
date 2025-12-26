@@ -1,0 +1,674 @@
+/* Waybar Advanced Gruvbox Dark Medium Style */
+/* Save as ~/.config/waybar/style.css */
+
+/* Import Nerd Font */
+/*@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");*/
+
+/* ============================================
+ *  GRUVBOX DARK MEDIUM COLOR PALETTE
+ *  ============================================ */
+@import "colors.css";
+
+* {
+
+
+    /* Defaults */
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", monospace;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 0;
+}
+
+/* ============================================
+ *  MAIN WINDOW
+ *  ============================================ */
+window#waybar {
+    background-color: rgba(40, 40, 40, 0.95);
+    color: var(--fg1);
+    transition: background-color 0.5s;
+    border-radius: 12px;
+    margin: 8px 12px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* ============================================
+ *  TOOLTIP
+ *  ============================================ */
+tooltip {
+    background: var(--bg0);
+    border: 2px solid var(--yellow);
+    border-radius: 8px;
+    padding: 10px;
+    color: var(--fg1);
+}
+
+tooltip label {
+    color: var(--fg1);
+    padding: 5px;
+}
+
+/* ============================================
+ *  CUSTOM LAUNCHER
+ *  ============================================ */
+#custom-launcher {
+background: linear-gradient(135deg, var(--yellow), var(--orange));
+color: var(--bg0);
+padding: 0 20px;
+margin: 4px 0 4px 4px;
+border-radius: 8px;
+font-size: 18px;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+
+#custom-launcher:hover {
+background: linear-gradient(135deg, var(--bright-yellow), var(--bright-orange));
+transform: scale(1.05);
+}
+
+/* ============================================
+ *  WORKSPACES
+ *  ============================================ */
+#workspaces {
+background: var(--bg1);
+padding: 0;
+margin: 4px 8px;
+border-radius: 8px;
+}
+
+#workspaces button {
+padding: 0 12px;
+margin: 4px 2px;
+background-color: transparent;
+color: var(--fg4);
+border-radius: 6px;
+transition: all 0.3s ease;
+font-size: 14px;
+font-weight: bold;
+}
+
+#workspaces button:hover {
+background-color: var(--bg2);
+color: var(--fg1);
+transform: translateY(-2px);
+}
+
+#workspaces button.active {
+background: linear-gradient(135deg, var(--yellow), var(--orange));
+color: var(--bg0);
+box-shadow: 0 4px 8px rgba(215, 153, 33, 0.3);
+}
+
+#workspaces button.urgent {
+background: var(--bright-red);
+color: var(--fg0);
+animation: urgent-blink 1s ease-in-out infinite;
+}
+
+@keyframes urgent-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* ============================================
+ *  WINDOW TITLE
+ *  ============================================ */
+#window {
+background: var(--bg1);
+color: var(--fg1);
+padding: 0 15px;
+margin: 4px 8px;
+border-radius: 8px;
+font-weight: 600;
+}
+
+/* ============================================
+ *  HARDWARE GROUP
+ *  ============================================ */
+#cpu,
+#memory,
+#temperature {
+background: var(--bg1);
+padding: 0 12px;
+margin: 4px 2px;
+border-radius: 8px;
+transition: all 0.3s ease;
+}
+
+#cpu {
+color: var(--orange);
+}
+
+#cpu:hover {
+background: var(--orange);
+color: var(--bg0);
+}
+
+#memory {
+color: var(--aqua);
+}
+
+#memory:hover {
+background: var(--aqua);
+color: var(--bg0);
+}
+
+#temperature {
+color: var(--yellow);
+}
+
+#temperature:hover {
+background: var(--yellow);
+color: var(--bg0);
+}
+
+#temperature.critical {
+color: var(--bright-red);
+animation: temp-critical 1s ease-in-out infinite;
+}
+
+@keyframes temp-critical {
+    0%, 100% {
+        background: var(--bg1);
+        transform: scale(1);
+    }
+    50% {
+        background: var(--red);
+        color: var(--fg0);
+        transform: scale(1.05);
+    }
+}
+
+/* ============================================
+ *  CLOCK
+ *  ============================================ */
+#clock {
+background: linear-gradient(135deg, var(--blue), var(--purple));
+color: var(--fg0);
+padding: 0 20px;
+margin: 4px 8px;
+border-radius: 8px;
+font-weight: bold;
+font-size: 14px;
+box-shadow: 0 4px 8px rgba(69, 133, 136, 0.3);
+transition: all 0.3s ease;
+}
+
+#clock:hover {
+background: linear-gradient(135deg, var(--bright-blue), var(--bright-purple));
+transform: translateY(-2px);
+box-shadow: 0 6px 12px rgba(69, 133, 136, 0.5);
+}
+
+/* ============================================
+ *  TRAY
+ *  ============================================ */
+#tray {
+background: var(--bg1);
+padding: 0 10px;
+margin: 4px 2px;
+border-radius: 8px;
+}
+
+#tray > .passive {
+-gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+-gtk-icon-effect: highlight;
+background-color: var(--red);
+border-radius: 6px;
+}
+
+/* ============================================
+ *  AUDIO GROUP
+ *  ============================================ */
+#pulseaudio,
+#pulseaudio-microphone {
+background: var(--bg1);
+padding: 0 12px;
+margin: 4px 2px;
+border-radius: 8px;
+transition: all 0.3s ease;
+}
+
+#pulseaudio {
+color: var(--purple);
+}
+
+#pulseaudio:hover {
+background: var(--purple);
+color: var(--bg0);
+}
+
+#pulseaudio.muted {
+color: var(--gray);
+background: var(--bg2);
+}
+
+#pulseaudio-microphone {
+color: var(--bright-purple);
+}
+
+#pulseaudio-microphone:hover {
+background: var(--bright-purple);
+color: var(--bg0);
+}
+
+#pulseaudio-microphone.muted {
+color: var(--gray);
+background: var(--bg2);
+}
+
+/* ============================================
+ *  NETWORK
+ *  ============================================ */
+#network {
+background: var(--bg1);
+color: var(--blue);
+padding: 0 12px;
+margin: 4px 2px;
+border-radius: 8px;
+transition: all 0.3s ease;
+}
+
+#network:hover {
+background: var(--blue);
+color: var(--fg0);
+}
+
+#network.disconnected {
+color: var(--red);
+background: var(--bg2);
+}
+
+#network.disconnected:hover {
+background: var(--red);
+color: var(--fg0);
+}
+
+/* ============================================
+ *  BLUETOOTH
+ *  ============================================ */
+#bluetooth {
+background: var(--bg1);
+color: var(--bright-blue);
+padding: 0 12px;
+margin: 4px 2px;
+border-radius: 8px;
+transition: all 0.3s ease;
+}
+
+#bluetooth:hover {
+background: var(--bright-blue);
+color: var(--bg0);
+}
+
+#bluetooth.disabled {
+color: var(--gray);
+background: var(--bg2);
+}
+
+#bluetooth.connected {
+color: var(--bright-aqua);
+}
+
+/* ============================================
+ *  BACKLIGHT
+ *  ============================================ */
+#backlight {
+background: var(--bg1);
+color: var(--bright-yellow);
+padding: 0 12px;
+margin: 4px 2px;
+border-radius: 8px;
+transition: all 0.3s ease;
+}
+
+#backlight:hover {
+background: var(--bright-yellow);
+color: var(--bg0);
+}
+
+/* ============================================
+ *  BATTERY
+ *  ============================================ */
+#battery {
+background: var(--bg1);
+padding: 0 12px;
+margin: 4px 2px;
+border-radius: 8px;
+transition: all 0.3s ease;
+}
+
+#battery.good {
+color: var(--green);
+}
+
+#battery.warning {
+color: var(--yellow);
+}
+
+#battery.critical {
+color: var(--red);
+animation: battery-critical 1s ease-in-out infinite;
+}
+
+@keyframes battery-critical {
+    0%, 100% {
+        background: var(--bg1);
+    }
+    50% {
+        background: var(--red);
+        color: var(--fg0);
+    }
+}
+
+#battery.charging {
+color: var(--bright-green);
+background: var(--bg1);
+}
+
+#battery.plugged {
+color: var(--bright-aqua);
+}
+
+#battery:hover {
+background: var(--green);
+color: var(--bg0);
+}
+
+#battery.critical:not(.charging):hover {
+background: var(--bright-red);
+}
+
+/* ============================================
+ *  CUSTOM NOTIFICATION
+ *  ============================================ */
+#custom-notification {
+background: var(--bg1);
+color: var(--bright-yellow);
+padding: 0 12px;
+margin: 4px 2px;
+border-radius: 8px;
+transition: all 0.3s ease;
+}
+
+#custom-notification:hover {
+background: var(--bright-yellow);
+color: var(--bg0);
+}
+
+/* ============================================
+ *  CUSTOM POWER
+ *  ============================================ */
+#custom-power {
+background: linear-gradient(135deg, var(--red), var(--orange));
+color: var(--fg0);
+padding: 0 15px;
+margin: 4px 4px 4px 2px;
+border-radius: 8px;
+font-size: 16px;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+
+#custom-power:hover {
+background: linear-gradient(135deg, var(--bright-red), var(--bright-orange));
+transform: scale(1.05);
+box-shadow: 0 4px 8px rgba(204, 36, 29, 0.5);
+}
+
+/* ============================================
+ *  IDLE INHIBITOR
+ *  ============================================ */
+#idle_inhibitor {
+background: var(--bg1);
+color: var(--fg4);
+padding: 0 12px;
+margin: 4px 2px;
+border-radius: 8px;
+transition: all 0.3s ease;
+}
+
+#idle_inhibitor.activated {
+background: var(--green);
+color: var(--bg0);
+}
+
+#idle_inhibitor:hover {
+background: var(--bg2);
+color: var(--fg1);
+}
+
+/* ============================================
+ *  MPD (Music Player Daemon)
+ *  ============================================ */
+#mpd {
+background: var(--bg1);
+color: var(--purple);
+padding: 0 12px;
+margin: 4px 2px;
+border-radius: 8px;
+}
+
+#mpd.disconnected {
+color: var(--gray);
+}
+
+#mpd.stopped {
+color: var(--fg4);
+}
+
+#mpd.paused {
+color: var(--yellow);
+}
+
+#mpd.playing {
+color: var(--bright-green);
+}
+
+/* ============================================
+ *  DISK
+ *  ============================================ */
+#disk {
+background: var(--bg1);
+color: var(--bright-yellow);
+padding: 0 12px;
+margin: 4px 2px;
+border-radius: 8px;
+transition: all 0.3s ease;
+}
+
+#disk:hover {
+background: var(--bright-yellow);
+color: var(--bg0);
+}
+
+/* ============================================
+ *  MODE (Hyprland submap)
+ *  ============================================ */
+#mode {
+background: var(--red);
+color: var(--fg0);
+padding: 0 15px;
+margin: 4px 8px;
+border-radius: 8px;
+font-weight: bold;
+animation: mode-blink 1s ease-in-out infinite;
+}
+
+@keyframes mode-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* ============================================
+ *  SCRATCHPAD
+ *  ============================================ */
+#scratchpad {
+background: var(--bg1);
+color: var(--bright-purple);
+padding: 0 12px;
+margin: 4px 2px;
+border-radius: 8px;
+}
+
+#scratchpad.empty {
+background: transparent;
+padding: 0;
+margin: 0;
+}
+
+/* ============================================
+ *  CUSTOM WEATHER (if using wttr.in)
+ *  ============================================ */
+#custom-weather {
+background: var(--bg1);
+color: var(--bright-blue);
+padding: 0 12px;
+margin: 4px 2px;
+border-radius: 8px;
+transition: all 0.3s ease;
+}
+
+#custom-weather:hover {
+background: var(--bright-blue);
+color: var(--bg0);
+}
+
+/* ============================================
+ *  CUSTOM UPDATES (pacman/yay)
+ *  ============================================ */
+#custom-updates {
+background: var(--bg1);
+color: var(--bright-green);
+padding: 0 12px;
+margin: 4px 2px;
+border-radius: 8px;
+transition: all 0.3s ease;
+}
+
+#custom-updates:hover {
+background: var(--bright-green);
+color: var(--bg0);
+}
+
+#custom-updates.has-updates {
+color: var(--bright-yellow);
+animation: updates-pulse 2s ease-in-out infinite;
+}
+
+@keyframes updates-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* ============================================
+ *  RESPONSIVE DESIGN
+ *  ============================================ */
+@media (max-width: 1920px) {
+    * {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1366px) {
+    * {
+        font-size: 11px;
+    }
+
+    #workspaces button {
+    padding: 0 10px;
+    }
+
+    #custom-launcher {
+    padding: 0 15px;
+    }
+}
+
+/* ============================================
+ *  ANIMATIONS & TRANSITIONS
+ *  ============================================ */
+* {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effects for all modules */
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#pulseaudio:hover,
+#network:hover,
+#bluetooth:hover,
+#backlight:hover,
+#battery:hover,
+#disk:hover,
+#custom-notification:hover,
+#custom-weather:hover,
+#custom-updates:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+ *  SCROLLBAR (for tooltips if needed)
+ *  ============================================ */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--yellow);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bright-yellow);
+}
+
+/* ============================================
+ *  ADDITIONAL EFFECTS
+ *  ============================================ */
+
+/* Smooth entry animation */
+window#waybar {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Module highlight on click */
+*:active {
+    transform: scale(0.95);
+}
+
+/* Subtle glow for active elements */
+#workspaces button.active,
+#clock {
+box-shadow: 0 0 10px rgba(215, 153, 33, 0.3);
+}
+
+/* Dark mode enhancement */
+@media (prefers-color-scheme: dark) {
+    window#waybar {
+        background-color: rgba(29, 32, 33, 0.95);
+    }
+}

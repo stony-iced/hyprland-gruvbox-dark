@@ -1,0 +1,231 @@
+# Starship Gruvbox Modern Minimal Configuration
+# Save as ~/.config/starship.toml
+
+format = """
+[╭─](bold #d79921)\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+$python\
+$nodejs\
+$rust\
+$golang\
+$docker_context\
+$package\
+$cmd_duration\
+$line_break\
+[╰─](bold #d79921)$character"""
+
+# Timeout for starship to execute commands
+command_timeout = 1000
+
+[character]
+success_symbol = "[](bold #b8bb26)"
+error_symbol = "[](bold #fb4934)"
+vicmd_symbol = "[](bold #fabd2f)"
+
+[username]
+style_user = "bold #83a598"
+style_root = "bold #fb4934"
+format = "[$user]($style) "
+disabled = false
+show_always = false
+
+[hostname]
+ssh_only = true
+format = "[@$hostname](bold #d3869b) "
+disabled = false
+
+[directory]
+style = "bold #d79921"
+format = "[$path]($style)[$read_only]($read_only_style) "
+truncation_length = 3
+truncate_to_repo = true
+read_only = " "
+read_only_style = "#fb4934"
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Videos" = " "
+"Projects" = " "
+"~" = " "
+
+[git_branch]
+symbol = " "
+style = "bold #b8bb26"
+format = "[$symbol$branch(:$remote_branch)]($style) "
+
+[git_status]
+style = "bold #fb4934"
+format = "([$all_status$ahead_behind]($style) )"
+conflicted = " =${count}"
+ahead = " ⇡${count}"
+behind = " ⇣${count}"
+diverged = " ⇕⇡${ahead_count}⇣${behind_count}"
+untracked = " ?${count}"
+stashed = " ${count}"
+modified = " !${count}"
+staged = " +${count}"
+renamed = " »${count}"
+deleted = " ✘${count}"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bold #fabd2f"
+
+[git_commit]
+commit_hash_length = 7
+format = "([\\($hash$tag\\)]($style) )"
+style = "bold #b8bb26"
+tag_symbol = " "
+tag_disabled = false
+
+[cmd_duration]
+min_time = 500
+format = "[⏱ $duration]($style) "
+style = "bold #a89984"
+
+[python]
+symbol = " "
+style = "bold #83a598"
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+pyenv_version_name = false
+detect_extensions = ["py"]
+
+[nodejs]
+symbol = " "
+style = "bold #98971a"
+format = "[$symbol($version )]($style)"
+detect_files = ["package.json", ".node-version"]
+detect_folders = ["node_modules"]
+
+[rust]
+symbol = " "
+style = "bold #d65d0e"
+format = "[$symbol($version )]($style)"
+detect_files = ["Cargo.toml"]
+
+[golang]
+symbol = " "
+style = "bold #83a598"
+format = "[$symbol($version )]($style)"
+detect_files = ["go.mod", "go.sum"]
+
+[docker_context]
+symbol = " "
+style = "bold #458588"
+format = "[$symbol$context]($style) "
+only_with_files = true
+
+[package]
+symbol = " "
+style = "bold #b16286"
+format = "[$symbol$version]($style) "
+disabled = false
+
+[lua]
+symbol = " "
+style = "bold #458588"
+format = "[$symbol($version )]($style)"
+
+[java]
+symbol = " "
+style = "bold #d65d0e"
+format = "[$symbol($version )]($style)"
+
+[ruby]
+symbol = " "
+style = "bold #cc241d"
+format = "[$symbol($version )]($style)"
+
+[php]
+symbol = " "
+style = "bold #b16286"
+format = "[$symbol($version )]($style)"
+
+[c]
+symbol = " "
+style = "bold #458588"
+format = "[$symbol($version(-$name) )]($style)"
+
+[cmake]
+symbol = "△ "
+style = "bold #689d6a"
+format = "[$symbol($version )]($style)"
+
+[aws]
+symbol = " "
+style = "bold #fabd2f"
+format = '[$symbol($profile )(\($region\) )(\[$duration\])]($style) '
+disabled = true
+
+[kubernetes]
+symbol = "☸ "
+style = "bold #83a598"
+format = '[$symbol$context( \($namespace\))]($style) '
+disabled = true
+
+[time]
+disabled = false
+format = '[ $time]($style) '
+time_format = "%T"
+style = "bold #7c6f64"
+
+[battery]
+full_symbol = " "
+charging_symbol = " "
+discharging_symbol = " "
+unknown_symbol = " "
+empty_symbol = " "
+
+[[battery.display]]
+threshold = 10
+style = "bold #fb4934"
+
+[[battery.display]]
+threshold = 30
+style = "bold #d79921"
+
+[[battery.display]]
+threshold = 100
+style = "bold #b8bb26"
+
+[memory_usage]
+disabled = false
+threshold = 75
+symbol = " "
+style = "bold #fb4934"
+format = "$symbol[$ram_pct]($style) "
+
+[jobs]
+symbol = " "
+style = "bold #83a598"
+number_threshold = 1
+symbol_threshold = 1
+format = "[$symbol$number]($style) "
+
+[status]
+style = "bold #fb4934"
+symbol = "✖"
+success_symbol = ""
+format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
+map_symbol = true
+disabled = false
+
+[line_break]
+disabled = false
+
+# Shell indicators
+[shell]
+fish_indicator = ""
+powershell_indicator = "_"
+bash_indicator = ">"
+zsh_indicator = "%"
+disabled = true
