@@ -9,7 +9,6 @@ Beautiful, modern Gruvbox-themed configuration files for Arch Linux + Hyprland.
 - **Bar**: Waybar
 - **Launcher**: Rofi
 - **Terminal**: Alacritty / Kitty
-- **Editor**: Neovim (LazyVim)
 - **Shell**: Zsh / Fish
 - **Theme**: Gruvbox Dark
 
